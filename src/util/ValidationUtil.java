@@ -1,6 +1,6 @@
-package util;
+package src.util;
 
-import exception.ValidationException;
+import src.exception.ValidationException;
 import java.util.regex.Pattern;
 
 public class ValidationUtil {

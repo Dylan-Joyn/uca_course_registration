@@ -1,8 +1,8 @@
-package repo;
+package src.repo;
 
-import model.Course;
-import model.Student;
-import util.ConsoleUtil;
+import src.model.Course;
+import src.model.Student;
+import src.util.ConsoleUtil;
 
 import java.io.*;
 import java.util.Map;

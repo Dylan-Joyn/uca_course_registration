@@ -1,11 +1,11 @@
-package service;
+package src.service;
 
-import exception.EnrollmentException;
-import model.Course;
-import model.Student;
-import util.ConsoleUtil;
-import util.LoggerUtil;
-import util.ValidationUtil;
+import src.exception.EnrollmentException;
+import src.model.Course;
+import src.model.Student;
+import src.util.ConsoleUtil;
+import src.util.LoggerUtil;
+import src.util.ValidationUtil;
 
 import java.util.LinkedHashMap;
 import java.util.Map;

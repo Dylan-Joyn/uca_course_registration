@@ -1,4 +1,4 @@
-package exception;
+package src.exception;
 
 public class EnrollmentException extends RuntimeException {
     public EnrollmentException(String message) {
