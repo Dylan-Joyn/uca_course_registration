@@ -7,7 +7,7 @@
 ## Option 1 – Run in IntelliJ IDEA or VS Code
 1. Open the project folder in your IDE.
 2. Ensure the `src` directory is marked as a **Source Root**.
-3. Right-click on `Main.java` (located in `src/app/`) and select **Run 'Main.main()'**.
+3. Right-click on `Main.java` (located in `src/src/app/`) and select **Run 'Main.main()'**.
 4. The console menu will appear.
 
 ---
