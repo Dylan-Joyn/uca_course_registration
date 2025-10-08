@@ -1,9 +1,10 @@
+### Short Overview
+**This document contains the package layout of the code. The code is seperated into their separate
+packages with their own responsibilities.**
 
 
 
-
-
-### 📁 Package Structure
+### Package Structure
 | Path                                         | Description |
 |----------------------------------------------|--------------|
 | `src/src/app/Main.java`                      | Entry point and CLI menu loop |
