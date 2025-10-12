@@ -1,6 +1,7 @@
 ### Short Overview
 **This document contains the package layout of the code. The code is seperated into their separate
-packages with their own responsibilities.**
+packages with their own responsibilities. The project applies Clean Design and SOLID principles to 
+separate functionality into distinct packages with clear responsibilities.**
 
 
 
