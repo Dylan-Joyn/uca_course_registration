@@ -23,21 +23,21 @@ class RegistrationServiceIT {
     }
 
     @Test void enroll_overCapacity_waitlist_thenDropPromotes() {
-        svc.addStudent("B1","A","a@x.com");
-        svc.addStudent("B2","B","b@x.com");
+        svc.addStudent("B001","A","a@x.com");
+        svc.addStudent("B002","B","b@x.com");
         svc.addCourse("CSCI101","Intro",1);
 
-        svc.enroll("B1","CSCI101"); // roster
-        svc.enroll("B2","CSCI101"); // waitlist
+        svc.enroll("B001","CSCI101"); // roster
+        svc.enroll("B002","CSCI101"); // waitlist
 
         var c = svc.courses.get("CSCI101");
         assertEquals(1, c.roster.size());
         assertEquals(1, c.waitlist.size());
 
-        svc.drop("B1","CSCI101");   // promote B2
+        svc.drop("B001","CSCI101");   // promote B2
         assertEquals(1, c.roster.size());
         assertEquals(0, c.waitlist.size());
-        assertEquals("B2", c.roster.get(0));
+        assertEquals("B002", c.roster.get(0));
     }
 }
 
