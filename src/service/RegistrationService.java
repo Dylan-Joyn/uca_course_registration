@@ -110,4 +110,58 @@ public class RegistrationService {
                     " enrolled=" + c.roster.size() + " wait=" + c.waitlist.size());
         }
     }
+
+    // Add these implementations in src/service/RegistrationService.java
+
+    public void addStudent(String id, String name, String email) {
+        ValidationUtil.validateStudent(id, name, email);
+        if (students.containsKey(id)) {
+            throw new EnrollmentException("Student already exists.");
+        }
+        students.put(id, new Student(id, name, email));
+    }
+
+    public void addCourse(String code, String title, int capacity) {
+        ValidationUtil.validateCourse(code, title, capacity);
+        if (courses.containsKey(code)) {
+            throw new EnrollmentException("Course already exists.");
+        }
+        courses.put(code, new Course(code, title, capacity));
+    }
+
+    public void enroll(String studentId, String courseCode) {
+        Course c = courses.get(courseCode);
+        if (c == null) throw new EnrollmentException("No such course.");
+        if (!students.containsKey(studentId)) throw new EnrollmentException("No such student.");
+
+        if (c.roster.contains(studentId)) throw new EnrollmentException("Already enrolled.");
+        if (c.waitlist.contains(studentId)) throw new EnrollmentException("Already waitlisted.");
+
+        if (c.roster.size() >= c.capacity) {
+            c.waitlist.add(studentId);           // course full → waitlist
+        } else {
+            c.roster.add(studentId);             // seat available → enroll
+        }
+    }
+
+    public void drop(String studentId, String courseCode) {
+        Course c = courses.get(courseCode);
+        if (c == null) throw new EnrollmentException("No such course.");
+
+        boolean removed = c.roster.remove(studentId);
+        if (removed) {
+            // freed a seat: promote the first from waitlist if present
+            if (!c.waitlist.isEmpty()) {
+                String promote = c.waitlist.remove(0);
+                c.roster.add(promote);
+            }
+            return;
+        }
+        if (c.waitlist.remove(studentId)) {
+            return; // removed from waitlist; nothing else to do
+        }
+        throw new EnrollmentException("Student not enrolled or waitlisted.");
+    }
+
+
 }
