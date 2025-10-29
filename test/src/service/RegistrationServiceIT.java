@@ -1,3 +1,4 @@
+//component test / integration test (service + model)
 package src.service;
 
 import org.junit.jupiter.api.BeforeEach;

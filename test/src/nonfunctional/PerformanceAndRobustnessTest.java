@@ -1,3 +1,5 @@
+//non functional test
+
 package src.nonfunctional;
 
 import org.junit.jupiter.api.Test;
