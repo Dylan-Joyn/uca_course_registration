@@ -111,8 +111,6 @@ public class RegistrationService {
         }
     }
 
-    // Add these implementations in src/service/RegistrationService.java
-
     public void addStudent(String id, String name, String email) {
         ValidationUtil.validateStudent(id, name, email);
         if (students.containsKey(id)) {
@@ -138,9 +136,9 @@ public class RegistrationService {
         if (c.waitlist.contains(studentId)) throw new EnrollmentException("Already waitlisted.");
 
         if (c.roster.size() >= c.capacity) {
-            c.waitlist.add(studentId);           // course full → waitlist
+            c.waitlist.add(studentId);           // course full = waitlist
         } else {
-            c.roster.add(studentId);             // seat available → enroll
+            c.roster.add(studentId);             // seat available = enroll
         }
     }
 
@@ -158,7 +156,7 @@ public class RegistrationService {
             return;
         }
         if (c.waitlist.remove(studentId)) {
-            return; // removed from waitlist; nothing else to do
+            return;
         }
         throw new EnrollmentException("Student not enrolled or waitlisted.");
     }
